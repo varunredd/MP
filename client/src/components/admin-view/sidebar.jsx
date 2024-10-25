@@ -33,9 +33,7 @@ const adminSidebarMenuItems = [
 
 
 function MenuItems({ setOpen }) {
-MenuItems.propTypes = {
-  setOpen: PropTypes.func.isRequired,
-};
+
   const navigate = useNavigate();
 
   return (
@@ -57,12 +55,13 @@ MenuItems.propTypes = {
   );
 }
 
+MenuItems.propTypes = {
+  setOpen: PropTypes.func,
+};
+
 function AdminSideBar({ open, setOpen }) {
   // Add 'open' to the props validation
-  AdminSideBar.propTypes = {
-    open: PropTypes.bool.isRequired,
-    setOpen: PropTypes.func.isRequired,
-  };
+  
 
   const navigate = useNavigate();
 
@@ -94,5 +93,10 @@ function AdminSideBar({ open, setOpen }) {
     </Fragment>
   );
 }
+
+AdminSideBar.propTypes = {
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
+};
 
 export default AdminSideBar;

@@ -129,22 +129,22 @@ function CommonForm({
 CommonForm.propTypes = {
     formControls: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        name: PropTypes.string,
         placeholder: PropTypes.string,
         type: PropTypes.string,
-        componentType: PropTypes.string.isRequired,
+        componentType: PropTypes.string,
         label: PropTypes.string,
         options: PropTypes.arrayOf(
           PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            label: PropTypes.string.isRequired,
+            id: PropTypes.string,
+            label: PropTypes.string,
           })
         ),
       })
-    ).isRequired,
-    formData: PropTypes.object.isRequired,
-    setFormData: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
+    ),
+    formData: PropTypes.object,
+    setFormData: PropTypes.func,
+    onSubmit: PropTypes.func,
     buttonText: PropTypes.string,
     isBtnDisabled: PropTypes.bool,
   };
