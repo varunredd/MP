@@ -24,12 +24,12 @@ function CheckAuth({ isAuthenticated, user, children }) {
 }
 
 CheckAuth.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired,
+    isAuthenticated: PropTypes.bool,
     user: PropTypes.shape({
         role: PropTypes.string,
         // add other user properties as needed
     }),
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
 };
 
 export default CheckAuth;

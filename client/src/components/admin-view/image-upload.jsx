@@ -1,15 +1,19 @@
 import { FileIcon, UploadCloudIcon, XIcon } from "lucide-react";
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Button } from "../ui/button";
+import { Skeleton } from "../ui/skeleton";
 
 function ProductImageUpload({
-  imageFile,
-  setImageFile,
-  uploadedImageUrl,
-  setUploadedImageUrl,
+    imageFile,
+    setImageFile,
+    imageLoadingState,
+    uploadedImageUrl,
+    setUploadedImageUrl,
+    setImageLoadingState,
 }) {
   const inputRef = useRef(null);
 
@@ -40,8 +44,25 @@ function ProductImageUpload({
       inputRef.current.value = "";
     }
   }
-
   
+  async function uploadImageToCloudinary() {
+    setImageLoadingState(true);
+    const data = new FormData();
+    data.append("my_file", imageFile);
+    const response = await axios.post(
+      "http://localhost:5011/api/admin/products/upload-image",
+      data
+    );
+    console.log(response, "response");
+
+    if (response?.data?.success) {
+      setUploadedImageUrl(response.data.result.url);
+      setImageLoadingState(false);
+    }
+  }
+  useEffect(() => {
+    if (imageFile !== null) uploadImageToCloudinary();
+  }, [imageFile]);
 
  
   return (
@@ -69,7 +90,9 @@ function ProductImageUpload({
             <UploadCloudIcon className="w-10 h-10 text-muted-foreground mb-2" />
             <span>Drag & drop or click to upload image</span>
           </Label>
-        ) : (
+        ) : imageLoadingState ? (
+            <Skeleton className="h-10 bg-gray-100" />
+          ): (
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <FileIcon className="w-8 text-primary mr-2 h-8" />
@@ -95,6 +118,8 @@ ProductImageUpload.propTypes = {
   setImageFile: PropTypes.func,
   uploadedImageUrl: PropTypes.string,
   setUploadedImageUrl: PropTypes.func,
+  setImageLoadingState: PropTypes.func,
+  imageLoadingState: PropTypes.bool,
 };
 
 export default ProductImageUpload;
