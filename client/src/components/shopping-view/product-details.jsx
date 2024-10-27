@@ -1,4 +1,3 @@
-// import { StarIcon } from "lucide-react";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent } from "../ui/dialog";
@@ -26,12 +25,12 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
 
   function handleRatingChange(getRating) {
     console.log(getRating, "getRating");
-
     setRating(getRating);
   }
 
   function handleAddToCart(getCurrentProductId, getTotalStock) {
     let getCartItems = cartItems.items || [];
+    console.log(getCartItems, "getCartItems");
 
     if (getCartItems.length) {
       const indexOfCurrentItem = getCartItems.findIndex(
@@ -44,7 +43,6 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
             title: `Only ${getQuantity} quantity can be added for this item`,
             variant: "destructive",
           });
-
           return;
         }
       }
@@ -82,14 +80,25 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
         reviewValue: rating,
       })
     ).then((data) => {
-      if (data.payload.success) {
+      if (data.payload && data.payload.success) {
         setRating(0);
         setReviewMsg("");
         dispatch(getReviews(productDetails?._id));
         toast({
           title: "Review added successfully!",
         });
+      } else {
+        toast({
+          title: "Failed to add review",
+          variant: "destructive",
+        });
       }
+    }).catch((error) => {
+      console.error("Error adding review:", error);
+      toast({
+        title: "An error occurred while adding the review",
+        variant: "destructive",
+      });
     });
   }
 
@@ -221,6 +230,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
     </Dialog>
   );
 }
+
 ProductDetailsDialog.propTypes = {
   open: PropTypes.bool,
   setOpen: PropTypes.func,
