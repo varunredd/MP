@@ -7,7 +7,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { addProductFormElements } from "@/components/config/index";
+import { addProductFormElements } from "@/config/index";
 import {
   addNewProduct,
   editProduct,
@@ -16,7 +16,7 @@ import {
 } from "@/store/admin/product-slice";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {useToast} from "@/components/ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import AdminProductTile from "@/components/admin-view/product-tile";
 
 const initialFormData = {
@@ -40,10 +40,9 @@ function AdminProducts() {
   const [imageLoadingState, setImageLoadingState] = useState(false);
   const [currentEditedId, setCurrentEditedId] = useState(null);
 
-
   const { productList } = useSelector((state) => state.adminProducts);
   const dispatch = useDispatch();
-  const {toast} = useToast();
+  const { toast } = useToast();
 
   function onSubmit(event) {
     event.preventDefault();
@@ -164,4 +163,3 @@ function AdminProducts() {
 }
 
 export default AdminProducts;
-

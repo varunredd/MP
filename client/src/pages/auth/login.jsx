@@ -1,11 +1,10 @@
 import CommonForm from "@/components/common/form";
-import { loginFormControls } from "@/components/config";
+import { loginFormControls } from "@/config";
 import { useState } from "react";
-import { Link } from 'react-router-dom'; // Add this line to import the Link component
-import { useDispatch } from 'react-redux'; // Add this line to import the useDispatch hook
+import { Link } from "react-router-dom"; // Add this line to import the Link component
+import { useDispatch } from "react-redux"; // Add this line to import the useDispatch hook
 import { loginUser } from "@/store/auth-slice"; // Replace 'path/to/loginUser' with the actual path to the loginUser function
 import { useToast } from "@/hooks/use-toast";
-
 
 const initialState = {
   email: "",
@@ -15,25 +14,24 @@ const initialState = {
 function AuthLogin() {
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
-  const {toast} = useToast();
+  const { toast } = useToast();
 
   function onSubmit(event) {
     event.preventDefault();
-    dispatch(loginUser(formData)).then((data)=>{
+    dispatch(loginUser(formData)).then((data) => {
       console.log(data);
-      if(data?.payload?.success){
+      if (data?.payload?.success) {
         toast({
           title: data?.payload?.message,
-        })
-         
-      }else{
+        });
+      } else {
         toast({
           title: data?.payload?.message,
-          variant: 'destructive',
-        })
+          variant: "destructive",
+        });
       }
-  })
-  };
+    });
+  }
 
   console.log(formData);
 
@@ -44,7 +42,7 @@ function AuthLogin() {
           Sign in to your account
         </h1>
         <p className="mt-2">
-          Dont have an account 
+          Dont have an account
           <Link
             className="font-medium ml-2 text-primary hover:underline"
             to="/auth/register"
@@ -65,5 +63,3 @@ function AuthLogin() {
 }
 
 export default AuthLogin;
-
-

@@ -1,12 +1,11 @@
 import CommonForm from "@/components/common/form";
-import { registerFormControls } from "@/components/config";
+import { registerFormControls } from "@/config";
 import { useState } from "react";
-import { Link } from 'react-router-dom'; // Add this line to import the Link component
+import { Link } from "react-router-dom"; // Add this line to import the Link component
 import { useDispatch } from "react-redux";
 import { registerUser } from "@/store/auth-slice";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-
 
 const initialState = {
   userName: "",
@@ -18,27 +17,27 @@ function AuthRegister() {
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {toast} = useToast();
+  const { toast } = useToast();
 
   function onSubmit(event) {
     event.preventDefault();
-    dispatch(registerUser(formData)).then((data)=>{
-      if(data?.payload?.success){
+    dispatch(registerUser(formData)).then((data) => {
+      if (data?.payload?.success) {
         toast({
           title: data?.payload?.message,
-        })
-         navigate('/auth/login')
-      }else{
+        });
+        navigate("/auth/login");
+      } else {
         toast({
           title: data?.payload?.message,
-          variant: 'destructive',
-        })
+          variant: "destructive",
+        });
       }
-  });
+    });
   }
 
   console.log(formData);
-  
+
   return (
     <div className="mx-auto w-full max-w-md space-y-6">
       <div className="text-center">
@@ -67,5 +66,3 @@ function AuthRegister() {
 }
 
 export default AuthRegister;
-
-
