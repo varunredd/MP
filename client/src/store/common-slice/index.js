@@ -10,7 +10,7 @@ export const getFeatureImages = createAsyncThunk(
   "/order/getFeatureImages",
   async () => {
     const response = await axios.get(
-      `http://localhost:5011/api/common/feature/get`
+      `https://mp-server-2y5d.onrender.com/api/common/feature/get`
     );
 
     return response.data;
@@ -21,7 +21,7 @@ export const addFeatureImage = createAsyncThunk(
   "/order/addFeatureImage",
   async (image) => {
     const response = await axios.post(
-      `http://localhost:5011/api/common/feature/add`,
+      `https://mp-server-2y5d.onrender.com/api/common/feature/add`,
       { image }
     );
 

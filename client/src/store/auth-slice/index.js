@@ -12,7 +12,7 @@ export const registerUser = createAsyncThunk(
   "/auth/register",
   async (formData) => {
     const response = await axios.post(
-      "http://localhost:5011/api/auth/register",
+      "https://mp-server-2y5d.onrender.com/api/auth/register",
       formData,
       {
         withCredentials: true,
@@ -24,7 +24,7 @@ export const registerUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
   const response = await axios.post(
-    "http://localhost:5011/api/auth/login",
+    "https://mp-server-2y5d.onrender.com/api/auth/login",
     formData,
     {
       withCredentials: true,
@@ -38,7 +38,7 @@ export const logoutUser = createAsyncThunk(
 
   async () => {
     const response = await axios.post(
-      "http://localhost:5011/api/auth/logout",
+      "https://mp-server-2y5d.onrender.com/api/auth/logout",
       {},
       {
         withCredentials: true,
@@ -51,7 +51,7 @@ export const logoutUser = createAsyncThunk(
 
 export const checkAuth = createAsyncThunk("/auth/check-auth", async () => {
   const response = await axios.get(
-    "http://localhost:5011/api/auth/check-auth",
+    "https://mp-server-2y5d.onrender.com/api/auth/check-auth",
     {
       withCredentials: true,
       headers: {
