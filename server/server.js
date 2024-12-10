@@ -27,7 +27,10 @@ const PORT = process.env.PORT || 5011;
 
 app.use(
     cors({
-        origin : 'http://localhost:5173',
+        // origin : 'http://localhost:5173',
+        origin: (origin, callback) => {
+                  callback(null, true);
+                },
         methods : ['GET', 'POST', 'DELETE', 'PUT'],
         allowedHeaders : [
                 "Content-Type",
