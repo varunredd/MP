@@ -68,7 +68,7 @@ node_modules
 .env
 dist
 
-Create a .env file in server/:
+Create a .env file in server:
 ```
 PORT=5000
 MONGO_DB_URL=your_mongo_connection_string
@@ -79,19 +79,21 @@ TOKEN_SECRET=your_jwt_secret
 PAYPAL_CLIENT_ID=your_paypal_client_id
 PAYPAL_CLIENT_SECRET=your_paypal_client_secret
 CLIENT_URL=http://localhost:5173
-🔐 Never commit this file to version control.
+```
+Never commit this file to version control.
 
 Update package.json scripts:
 
-json
+```
 "scripts": {
   "start": "node server.js",
   "dev": "nodemon server.js"
 },
 "main": "server.js"
-Run the backend server:
+```
 
-bash
+Run the backend server:
+```
 npm run dev
 💻 Frontend Setup
 bash
@@ -99,16 +101,18 @@ cd ../client
 npm create vite@latest client -- --template react
 cd client
 npm install
-Install core dependencies:
+```
 
-bash
+Install core dependencies:
+```
 npm install @reduxjs/toolkit react-redux axios react-router-dom
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 npm install tailwindcss-animate
-Configure tailwind.config.js:
+```
 
-js
+Configure tailwind.config.js:
+```
 export default {
   content: [
     "./index.html",
@@ -119,9 +123,10 @@ export default {
   },
   plugins: [],
 }
-Create jsconfig.json for absolute imports:
+```
 
-json
+Create jsconfig.json for absolute imports:
+```
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -131,9 +136,11 @@ json
   },
   "include": ["src"]
 }
+```
+
 Update vite.config.js:
 
-js
+```
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from "path"
@@ -146,11 +153,15 @@ export default defineConfig({
     },
   },
 })
+```
+
 (Optional) Add Shadcn UI components:
 
-bash
+```
 npx shadcn-ui@latest add button
-Start the React frontend:
+```
 
-bash
+Start the React frontend:
+```
 npm run dev
+```
