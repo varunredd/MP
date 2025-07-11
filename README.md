@@ -60,6 +60,7 @@ A full-featured e-commerce platform built with MongoDB, Express.js, React, and N
 cd server
 npm init -y
 npm install bcryptjs cloudinary cookie-parser cors dotenv express jsonwebtoken mongoose multer nodemon paypal-rest-sdk
+```
 
 Create .gitignore in server/:
 ```
