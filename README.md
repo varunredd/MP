@@ -1,5 +1,5 @@
 # Ecm
-# 🛒 MERN Stack E-Commerce Application with Admin Panel
+#  MERN Stack E-Commerce Application with Admin Panel
 
 ![MERN Stack](https://img.shields.io/badge/MERN-Full%20Stack-blue)
 ![E-Commerce](https://img.shields.io/badge/E--Commerce-Platform-green)
@@ -7,9 +7,9 @@
 
 A full-featured e-commerce platform built with MongoDB, Express.js, React, and Node.js, featuring both customer-facing storefront and administrative management capabilities.
 
-## ✨ Features
+## Features
 
-### 🛠 Admin Panel Features
+### Admin Panel Features
 - **Super Admin Access** - Secure administrative controls
 - **Dashboard Management** - Upload promotional banners and featured images
 - **Product Management** 
@@ -19,7 +19,7 @@ A full-featured e-commerce platform built with MongoDB, Express.js, React, and N
   - Cloudinary image hosting for product media
 - **Order Management** - Process and track customer orders
 
-### 🛍 Customer Features
+### Customer Features
 - **Product Catalog** - Browse by categories/brands
 - **Detailed Product Pages** - Complete product information
 - **Shopping Cart** - Add/remove items, quantity adjustment
@@ -28,7 +28,7 @@ A full-featured e-commerce platform built with MongoDB, Express.js, React, and N
 - **Search Functionality** - Find products quickly
 - **Review System** - Customer feedback on purchases
 
-## 🧰 Technology Stack
+## Technology Stack
 
 ### Frontend
 - **React** - UI Components
@@ -47,7 +47,7 @@ A full-featured e-commerce platform built with MongoDB, Express.js, React, and N
 - **Cloudinary** - Media storage
 - **PayPal SDK** - Payments
 
-## 🚀 Installation Guide
+## Installation Guide
 
 ### Prerequisites
 - Node.js (v16+ recommended)
