@@ -67,6 +67,7 @@ Create .gitignore in server/:
 node_modules
 .env
 dist
+```
 
 Create a .env file in server:
 ```
@@ -80,10 +81,10 @@ PAYPAL_CLIENT_ID=your_paypal_client_id
 PAYPAL_CLIENT_SECRET=your_paypal_client_secret
 CLIENT_URL=http://localhost:5173
 ```
+
 Never commit this file to version control.
 
 Update package.json scripts:
-
 ```
 "scripts": {
   "start": "node server.js",
