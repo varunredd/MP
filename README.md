@@ -1,10 +1,6 @@
 # Ecm
 #  MERN Stack E-Commerce Application with Admin Panel
 
-![MERN Stack](https://img.shields.io/badge/MERN-Full%20Stack-blue)
-![E-Commerce](https://img.shields.io/badge/E--Commerce-Platform-green)
-![Admin Panel](https://img.shields.io/badge/Admin-Panel-orange)
-
 A full-featured e-commerce platform built with MongoDB, Express.js, React, and Node.js, featuring both customer-facing storefront and administrative management capabilities.
 
 ## Features
