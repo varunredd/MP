@@ -156,7 +156,7 @@ export default defineConfig({
 })
 ```
 
-(Optional) Add Shadcn UI components:
+Add Shadcn UI components:
 
 ```
 npx shadcn-ui@latest add button
