@@ -1,4 +1,3 @@
-# Ecm
 #  MERN Stack E-Commerce Application with Admin Panel
 
 A full-featured e-commerce platform built with MongoDB, Express.js, React, and Node.js, featuring both customer-facing storefront and administrative management capabilities.
